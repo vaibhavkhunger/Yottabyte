@@ -4,12 +4,7 @@ import com.google.common.base.Preconditions;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.NullWritable;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 
 import java.io.FileInputStream;
@@ -17,11 +12,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static com.thoughtworks.yottabyte.constants.FileNameConstants.OLD_VEHICLES;
 import static com.thoughtworks.yottabyte.constants.FileNameConstants.VEHICLES;
-import static com.thoughtworks.yottabyte.vehiclecount.OlderVehicleMapper.*;
+import static com.thoughtworks.yottabyte.vehiclecount.VehicleMapper.*;
 
-public class OldVehicleCountDriver extends Configured implements Tool {
+public class VehicleCountDriver extends Configured implements Tool {
 
   private Properties properties = new Properties();
 

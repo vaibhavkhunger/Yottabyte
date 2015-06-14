@@ -10,7 +10,7 @@ import org.joda.time.format.DateTimeFormat;
 
 import java.io.IOException;
 
-public class OlderVehicleMapper extends Mapper<Object, Text, Text, IntWritable> {
+public class VehicleMapper extends Mapper<Object, Text, Text, IntWritable> {
 
   public static final String COLUMN_SEPARATOR = "COLUMN_SEPARATOR";
   public static final String REFERENCE_DATE = "REFERENCE_DATE";
