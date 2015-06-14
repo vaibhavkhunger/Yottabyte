@@ -6,6 +6,9 @@ HDFS_VEHICLE_INPUT_FILE_LOCATION=hdfs://yottabyte02.thoughtworks.com:8020/user/v
 #Maven command to package
 mvn clean package -Duser=YOUR_USERNAME
 
+#Copying the artifact to edge node.
+scp target/hadoop-1.0-SNAPSHOT-jar-with-dependencies.jar YOUR_USERNAME@10.10.5.96:~
+
 #HDFS command to copy input file
 hadoop dfs -cp hdfs://yottabyte02.thoughtworks.com:8020/user/vaibhavk/vehicleCount/input/VEHICLE_INFO vehicleCount/input/VEHICLE_INFO
 
