@@ -15,10 +15,17 @@ hadoop dfs -cp hdfs://yottabyte02.thoughtworks.com:8020/user/vaibhavk/vehicleCou
 #Hadoop command to run the job on EdgeNode
 hadoop jar hadoop-1.0-SNAPSHOT-jar-with-dependencies.jar MAIN_CLASS_NAME
 
+#Spark shell 
+HDFS_USER_NAME=<user> HADOOP_CONF_DIR=/etc/hadoop/conf spark-shell --master yarn-client --conf spark.ui.port=<Your EMP ID>
+
+#Spark job submit
+spark-submit --class class-name <jar-path> <application arguments>
+
 EDGE_NODE=10.10.5.96
 NAMENODE=10.10.5.97
 
 RESOURCEMANAGER=10.10.5.95
 JOB_HISTORY_SERVER=10.10.5.95
+
 
 
