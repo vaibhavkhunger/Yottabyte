@@ -16,10 +16,10 @@ hadoop dfs -cp hdfs://yottabyte02.thoughtworks.com:8020/user/vaibhavk/vehicleCou
 hadoop jar hadoop-1.0-SNAPSHOT-jar-with-dependencies.jar MAIN_CLASS_NAME
 
 #Spark shell 
-HDFS_USER_NAME=<user> HADOOP_CONF_DIR=/etc/hadoop/conf spark-shell --master yarn-client --conf spark.ui.port=<Your EMP ID>
+HDFS_USER_NAME=YOUR_USERNAME HADOOP_CONF_DIR=/etc/hadoop/conf spark-shell --master yarn-client --conf spark.ui.port=YOUR_EMP_ID
 
 #Spark job submit
-spark-submit --class class-name <jar-path> <application arguments>
+spark-submit --class class-name APPLICATION_JAR_PATH APPLICATION_PARAMETERS
 
 EDGE_NODE=10.10.5.96
 NAMENODE=10.10.5.97
