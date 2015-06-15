@@ -6,6 +6,7 @@ import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,15 +18,15 @@ import static com.thoughtworks.yottabyte.vehiclecount.VehicleMapper.*;
 
 public class VehicleCountDriver extends Configured implements Tool {
 
+  private static ClassLoader loader;
   private Properties properties = new Properties();
 
   @Override
   public int run(String[] args) throws Exception {
     loadPropertiesFile(args[0]);
+
     Configuration configuration = getConf();
     configuration.set(COLUMN_SEPARATOR, get(VEHICLES.columnSeparator()));
-    configuration.set(REFERENCE_DATE, get(VEHICLES.referenceDate()));
-    configuration.set(REFERENCE_DATE_FORMAT, get(VEHICLES.referenceDateFormat()));
     configuration.set(VEHICLE_DATE_FORMAT, get(VEHICLES.dateFormat()));
 
     Job job = Job.getInstance(configuration,this.getClass().getSimpleName());
@@ -49,6 +50,15 @@ public class VehicleCountDriver extends Configured implements Tool {
 
   protected Path getPath(String propertyName){
     return new Path(get(propertyName));
+  }
+
+  public static void main(String[] args) throws Exception {
+    loader = VehicleCountDriver.class.getClassLoader();
+    if (args.length < 1) {
+      args = new String[]{loader.getResource("config.properties").getPath()};
+    }
+    int exitCode = ToolRunner.run(new Configuration(), new VehicleCountDriver(), args);
+    System.exit(exitCode);
   }
 
 }

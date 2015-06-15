@@ -9,6 +9,7 @@ import java.io.IOException;
 public class TaggedVehicleMapper extends Mapper<Object, Text, Text, Text> {
 
   public static final String VEHICLE_COLUMN_SEPARATOR = "VEHICLE_COLUMN_SEPARATOR";
+  public static final String VEHICLE_DATE_FORMAT = "VEHICLE_DATE_FORMAT";
 
   private Configuration configuration;
 

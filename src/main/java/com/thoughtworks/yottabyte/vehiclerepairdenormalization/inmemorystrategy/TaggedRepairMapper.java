@@ -1,5 +1,6 @@
 package com.thoughtworks.yottabyte.vehiclerepairdenormalization.inmemorystrategy;
 
+import com.google.common.base.Preconditions;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -19,6 +20,11 @@ public class TaggedRepairMapper extends Mapper<Object, Text, Text, Text> {
   protected void setup(Context context) throws IOException, InterruptedException {
     super.setup(context);
     configuration = context.getConfiguration();
+  }
+
+  protected String get(String key){
+    return Preconditions.checkNotNull(configuration.get(key),
+      "Expected %s to be present, but was not", key);
   }
 }
 
