@@ -9,8 +9,6 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-import static org.apache.hadoop.io.WritableUtils.*;
-
 @NoArgsConstructor
 public class TaggedKey implements WritableComparable<TaggedKey> {
 
@@ -21,7 +19,7 @@ public class TaggedKey implements WritableComparable<TaggedKey> {
 
   @Override
   public int compareTo(TaggedKey o) {
-    return tag.compareTo(o.tag);
+    return 0;
   }
 
   @Override
