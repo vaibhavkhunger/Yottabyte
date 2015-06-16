@@ -1,0 +1,26 @@
+<workflow-app name="ParentWorkFlow" xmlns="uri:oozie:workflow:0.1">
+
+    <start to="SubWorkFlow"/>
+
+    <action name="SubWorkFlow">
+        <sub-workflow>
+            <app-path>workflow.xml</app-path>
+            <propagate-configuration/>
+            <configuration>
+                <property>
+                    <name>input.dir</name>
+                    <value>${wf:id()}/second-mr-output</value>
+                </property>
+            </configuration>
+        </sub-workflow>
+        <ok to="end"/>
+        <error to="error"/>
+    </action>
+
+    <kill name="error">
+        <message>error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+
+    <end name="end"/>
+
+</workflow-app>
