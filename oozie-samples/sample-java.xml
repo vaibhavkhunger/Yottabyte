@@ -1,0 +1,34 @@
+
+
+    <java>
+
+        <job-tracker>[JOB-TRACKER]</job-tracker>
+        <name-node>[NAME-NODE]</name-node>
+
+        <prepare>
+            <delete path="[PATH]"/>
+            <mkdir path="[PATH]"/>
+        </prepare>
+
+        <configuration>
+            <property>
+                <name>[PROPERTY-NAME]</name>
+                <value>[PROPERTY-VALUE]</value>
+            </property>
+        </configuration>
+
+        <main-class>[MAIN-CLASS]</main-class>
+
+        <java-opts>[JAVA-STARTUP-OPTS]</java-opts>
+
+        <arg>ARGUMENT</arg>
+
+    </java>
+
+
+
+
+
+
+
+

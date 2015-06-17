@@ -1,0 +1,33 @@
+
+
+
+    <hive xmlns="uri:oozie:hive-action:0.2">
+
+        <job-tracker>[JOB-TRACKER]</job-tracker>
+        <name-node>[NAME-NODE]</name-node>
+
+        <prepare>
+            <delete path="[PATH]"/>
+            <mkdir path="[PATH]"/>
+        </prepare>
+
+        <job-xml>[HIVE SETTINGS FILE]</job-xml>
+
+        <configuration>
+            <property>
+                <name>[PROPERTY-NAME]</name>
+                <value>[PROPERTY-VALUE]</value>
+            </property>
+        </configuration>
+
+        <script>[HIVE-SCRIPT]</script>
+        <param>[PARAM-VALUE]</param>
+
+        <param>[PARAM-VALUE]</param>
+
+        <file>[FILE-PATH]</file>
+
+    </hive>
+
+
+

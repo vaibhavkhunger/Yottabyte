@@ -1,0 +1,13 @@
+        <workflow>
+            <app-path>hdfs://foo:8020/user/akashm/logsprocessor.xml</app-path>
+            <configuration>
+                <property>
+                    <name>wfInput</name>
+                    <value>hdfs://foo:8020/app/logs/2015/06/12/08/00</value>
+                </property>
+                <property>
+                    <name>wfOutput</name>
+                    <value>hdfs://foo:8020/app/logs/2015/06/12/08/00</value>
+                </property>
+            </configuration>
+        </workflow>
